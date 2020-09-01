@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Box } from "./Box";
 import "./boxes.css";
+import { choice } from "./helper";
+import uuid from "react-uuid";
 
 export default class ColorContainer extends Component {
   static defaultProps = {
@@ -34,17 +36,27 @@ export default class ColorContainer extends Component {
   };
 
   handleClick = () => {
-      this.setState(curState => ({
-        count: curState.count + 1,
-      }))
-  }
-   
+    const rand = Math.floor(Math.random() * this.props.colors.length);
+    this.setState((curState) => ({
+      count: curState.count + rand,
+    }));
+  };
+
   render() {
+    const getColor = choice(this.props.colors);
+    console.log(getColor);
+    let boxes = [];
+    while (boxes.length < 18) {
+      boxes.push(
+        <Box key={uuid()} onClick={this.handleClick} color={getColor} />
+      );
+    }
+    console.log(boxes.length);
     return (
       <div>
         {this.state.count}
-        <Box onClick={this.handleClick} />
-        <button onClick={this.handleClick} >onClick</button>
+        <div className="container">{boxes}</div>
+        <button onClick={this.handleClick}>onClick</button>
       </div>
     );
   }

@@ -1,27 +1,14 @@
 import React from "react";
 import "./boxes.css";
 
-export const Box = () => {
+export const Box = (props) => {
+  const handleClick = (e) => {
+    props.onClick(e.target.value);
+  };
+
   return (
-    <div className="container">
-      <div className="box color1">box</div>
-      <div className="box">box</div>
-      <div className="box">box</div>
-      <div className="box">box</div>
-      <div className="box">box</div>
-      <div className="box">box</div>
-      <div className="box">box</div>
-      <div className="box">box</div>
-      <div className="box">box</div>
-      <div className="box">box</div>
-      <div className="box">box</div>
-      <div className="box">box</div>
-      <div className="box">box</div>
-      <div className="box">box</div>
-      <div className="box">box</div>
-      <div className="box">box</div>
-      <div className="box">box</div>
-      <div className="box">box</div>
+    <div className='box' onClick={handleClick} style={{ background: `${props.color}` }}>
+      box
     </div>
   );
 };
