@@ -1,14 +1,14 @@
-.container {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
+
+
+.Box{
+  height: 20em;;
+  width: 20em;
 }
 
-.box {
-  border: 1px solid black;
-  width: auto;
-  height: 10em;
-}
-
-.color1 {
-  background: #ffcc66;
+.BoxContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
 }
