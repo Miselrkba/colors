@@ -48,10 +48,10 @@ export default class ColorContainer extends Component {
     let boxes = [];
     while (boxes.length < 18) {
       boxes.push(
-        <Box key={uuid()} onClick={this.handleClick} color={getColor} />
+        <Box key={uuid()} onClick={this.handleClick} color={choice(this.props.colors)} />
       );
     }
-    console.log(boxes.length);
+    
     return (
       <div>
         {this.state.count}
